@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid'
 const router = express.Router()
 
 // Users
-const users = []
+let users = []
 
 // Users routes
 // all routes in here will start with "/users"
@@ -36,6 +36,13 @@ router.get("/:id", (req, res) => {
     res.send("The user is: "+fountUser.firstName)
 })
 
+// Delete user with id - /users/userId
+router.delete("/:id", (req, res) => {
+    const {id} = req.params
 
+    users = users.filter(user => user.id !== id)
+
+    res.send("The user with id "+ id +" was deleted")
+})
 
 export default router
