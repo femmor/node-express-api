@@ -11,6 +11,9 @@ const PORT = 5000
 // use body-parser
 app.use(bodyParser.json())
 
+// create route
+app.get("/", (req, res) => res.send("Hello from homepage"))
+
 // listen for incoming requests
 app.listen(PORT, () => {
     console.log(`App running on port: http://localhost:${PORT}`)
